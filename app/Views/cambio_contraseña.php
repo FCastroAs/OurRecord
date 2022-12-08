@@ -22,24 +22,43 @@
 <header>
 
 </header>
+
+    <div id="msg"></div>
+
+    <div id="error" class="alert alert-danger ocultar" role="alert">
+        Las Contraseñas no coinciden
+    </div>
+
     <div class="wrapperLogin fadeInDown">
         <div id="formContent">
             <h2>Debe establecer una nueva contraseña</h2>
-            <form name="formLogin" method="post" action="actualizaContraseña">
+            <form name="formLogin" method="post" onsubmit="return verificarPasswords(this)" action="actualizaContraseña">
                 <input type="hidden" name="IdUsuario">
-                <input type="text" class="fadeIn second" name="nuevaContraseña" placeholder="Contraseña">
-                <input type="text" class="fadeIn third" name="nuevaContraseña2" placeholder="Repita Contraseña">
+                <input id="pass1" type="text" class="fadeIn second" name="nuevaContraseña" placeholder="Contraseña">
+                <input id="pass2" type="text" class="fadeIn third" name="nuevaContraseña2" placeholder="Repita Contraseña">
                 <input type="submit" class="fadeIn fourth" value="Aceptar">
             </form>
         </div>
     </div>
 
-    <?php
-        $session = session();
-        if ($session->getFlashdata("error") != null){
-            echo("<div>" . $session->getFlashdata("error") . "</div>");
+<script>
+    function verificarPasswords() {
+        // Obtenemos los valores de los campos de contraseñas
+        pass1 = document.getElementById('pass1');
+        pass2 = document.getElementById('pass2');
+
+        // Verificamos si las constraseñas no coinciden
+        if (pass1.value != pass2.value) {
+
+            // Si las constraseñas no coinciden mostramos un mensaje
+            document.getElementById("error").classList.add("mostrar");
+
+            return false;
+        } else {
+            return true;
         }
-    ?>
+    }
+</script>
 
 <footer>
 

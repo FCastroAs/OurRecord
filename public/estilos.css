@@ -441,3 +441,11 @@ a.article:hover {
         display: none;
     }
 }
+
+.ocultar {
+    display: none;
+}
+
+.mostrar {
+    display: block;
+}
