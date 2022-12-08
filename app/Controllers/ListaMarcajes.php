@@ -13,6 +13,7 @@ class ListaMarcajes extends BaseController
 
             $marcajesModel = new MarcajesModel();
             $data['marcajes'] = $marcajesModel->where("IdTrabajador", $this->GetUsuarioLogado()->IdTrabajador) ->findAll();
+            $data['idTrabajador'] = $this->GetUsuarioLogado()->IdTrabajador;
 
             return $this->MuestraVista('lista_marcajes', $data);
         } else {

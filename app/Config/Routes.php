@@ -53,6 +53,8 @@ $routes->match(['get', 'post'], 'listaTrabajadores', 'ListaTrabajadores::index')
 $routes->match(['get', 'post'], 'marcaje', 'AltaMarcaje::index');
 $routes->match(['get', 'post'], 'editarEmpresa/(:num)', 'EditarEmpresa::MuestraEmpresa/$1');
 $routes->match(['get', 'post'], 'editarTrabajador/(:num)', 'EditarTrabajador::MuestraTrabajador/$1');
+$routes->match(['get', 'post'], 'informe/(:num)', 'InformeMarcajes::InformeMarcajes/$1');
+
 
 
 

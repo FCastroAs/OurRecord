@@ -18,8 +18,4 @@
             </tr>
         <?php } ?>
     </table>
-
-    <form name="formLogin" method="post" action="informe/<?php echo $idTrabajador; ?>">
-        <button type="submit">Informe Jornadas</button>
-    </form>
 </div>
