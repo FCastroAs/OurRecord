@@ -25,7 +25,7 @@
     <div class="wrapperLogin fadeInDown">
         <div id="formContent">
             <h1>Our Record</h1>
-            <form name="formLogin" method="post" action="login">
+            <form name="formLogin" method="post" action="/login">
                 <input type="text" id="usuario" class="fadeIn second" name="usuario" placeholder="Usuario">
                 <input type="text" id="contraseña" class="fadeIn third" name="contraseña" placeholder="Contraseña">
                 <input type="submit" class="fadeIn fourth" value="Log In">
