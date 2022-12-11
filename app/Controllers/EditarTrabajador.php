@@ -29,6 +29,7 @@ class EditarTrabajador extends BaseController
         $data['trabajador'] = $trabajadoresModel->find($idTrabajador);
         $data['usuario'] = $usuariosModel->where("IdTrabajador", $idTrabajador)->findAll(1)[0];
         $data['marcajes'] = $marcajesModel->where("IdTrabajador", $idTrabajador)->findAll();
+        $data['idTrabajador'] = $idTrabajador;
 
         return $this->MuestraVista('editar_trabajador', $data);
 

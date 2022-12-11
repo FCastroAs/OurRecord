@@ -45,4 +45,7 @@
 
         <button type="submit">Guardar</button>
     </form>
+    <form name="formInforme" method="post" action="/informe/<?php echo $idTrabajador; ?>">
+        <button type="submit">Informe Jornadas</button>
+    </form>
 </div>

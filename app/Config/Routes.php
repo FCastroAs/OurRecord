@@ -44,6 +44,7 @@ $routes->post('creaEmpresa', 'AltaEmpresa::Guardar');
 $routes->post('creaTrabajador', 'AltaTrabajador::Guardar');
 $routes->post('creaMarcaje', 'AltaMarcaje::Guardar');
 $routes->post('editaEmpresa', 'EditarEmpresa::Guardar');
+$routes->post('eliminaEmpresa/(:num)', 'EditarEmpresa::Eliminar/$1');
 $routes->post('editaTrabajador', 'EditarTrabajador::Guardar');
 $routes->post('actualizaContraseña', 'CambioContraseña::Guardar');
 $routes->match(['get', 'post'],'cambioContraseña', 'CambioContraseña::index');

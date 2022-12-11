@@ -46,4 +46,7 @@
 
         <button type="submit">Guardar</button>
     </form>
+    <form name="formEliminarEmpresa" onsubmit="confirm('¿Está seguro de quere eliminar la empresa?')" method="post" action="/eliminaEmpresa/<?php echo $empresa->IdEmpresa; ?>">
+        <button type="submit">Eliminar</button>
+    </form>
 </div>
