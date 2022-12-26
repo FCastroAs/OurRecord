@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Entities\Empresas;
 use CodeIgniter\Model;
 
 class EmpresasModel extends Model
@@ -14,5 +15,5 @@ class EmpresasModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
-    protected $returnType    = \App\Entities\Empresas::class;
+    protected $returnType    = Empresas::class;
 }

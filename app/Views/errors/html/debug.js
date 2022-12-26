@@ -1,5 +1,5 @@
-var tabLinks    = new Array();
-var contentDivs = new Array();
+var tabLinks    = [];
+var contentDivs = [];
 
 function init()
 {

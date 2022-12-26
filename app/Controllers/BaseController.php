@@ -64,16 +64,18 @@ abstract class BaseController extends Controller
     public function MuestraVista($vista, array $data = []){
 
         $pagina = view('plantilla/cabecera');
+        $dataUsuario['Login'] = $this->GetUsuarioLogado()->Login;
 
         switch ($this->GetUsuarioLogado()->Rol){
             case 1:
-                $pagina .= view('menu_admin');
+                $pagina .= view('menu_admin',$dataUsuario);
                 break;
             case 2:
-                $pagina .= view('menu_empresa');
+                $pagina .= view('menu_empresa',$dataUsuario);
                 break;
             case 3:
-                $pagina .= view('menu_empleado');
+                $dataUsuario['IdTrabajador'] = $this->GetUsuarioLogado()->IdTrabajador;
+                $pagina .= view('menu_empleado',$dataUsuario);
                 break;
         }
         $pagina .= view($vista, $data);

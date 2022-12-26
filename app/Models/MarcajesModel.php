@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Entities\Marcajes;
 use CodeIgniter\Model;
 
 class MarcajesModel extends Model
@@ -14,5 +15,5 @@ class MarcajesModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
-    protected $returnType    = \App\Entities\Marcajes::class;
+    protected $returnType    = Marcajes::class;
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Entities\Usuarios;
 use CodeIgniter\Model;
 
 class UsuariosModel extends Model
@@ -14,5 +15,5 @@ class UsuariosModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
-    protected $returnType    = \App\Entities\Usuarios::class;
+    protected $returnType    = Usuarios::class;
 }

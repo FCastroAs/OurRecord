@@ -38,13 +38,9 @@ $routes->setAutoRoute(false);
 $routes->match(['get', 'post'], '/', 'Login::index');
 $routes->post('login', 'Login::validar');
 $routes->post('desconectarse', 'Login::desconectarse');
-$routes->post('altaEmpresa', 'AltaEmpresa::index');
-$routes->post('altaTrabajador', 'AltaTrabajador::index');
 $routes->post('creaEmpresa', 'AltaEmpresa::Guardar');
-$routes->post('creaTrabajador', 'AltaTrabajador::Guardar');
 $routes->post('creaMarcaje', 'AltaMarcaje::Guardar');
 $routes->post('editaEmpresa', 'EditarEmpresa::Guardar');
-$routes->post('eliminaEmpresa/(:num)', 'EditarEmpresa::Eliminar/$1');
 $routes->post('editaTrabajador', 'EditarTrabajador::Guardar');
 $routes->post('actualizaContraseña', 'CambioContraseña::Guardar');
 $routes->match(['get', 'post'],'cambioContraseña', 'CambioContraseña::index');
@@ -55,8 +51,10 @@ $routes->match(['get', 'post'], 'marcaje', 'AltaMarcaje::index');
 $routes->match(['get', 'post'], 'editarEmpresa/(:num)', 'EditarEmpresa::MuestraEmpresa/$1');
 $routes->match(['get', 'post'], 'editarTrabajador/(:num)', 'EditarTrabajador::MuestraTrabajador/$1');
 $routes->match(['get', 'post'], 'informe/(:num)', 'InformeMarcajes::InformeMarcajes/$1');
-
-
+$routes->match(['get', 'post'],'eliminaEmpresa/(:num)', 'EditarEmpresa::Eliminar/$1');
+$routes->match(['get', 'post'], 'altaEmpresa', 'AltaEmpresa::index');
+$routes->match(['get', 'post'], 'altaTrabajador', 'AltaTrabajador::index');
+$routes->match(['get', 'post'], 'creaTrabajador', 'AltaTrabajador::Guardar');
 
 
 

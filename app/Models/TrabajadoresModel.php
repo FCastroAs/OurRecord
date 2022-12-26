@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Entities\Trabajadores;
 use CodeIgniter\Model;
 
 class TrabajadoresModel extends Model
@@ -14,5 +15,5 @@ class TrabajadoresModel extends Model
     protected $validationRules    = [];
     protected $validationMessages = [];
     protected $skipValidation     = false;
-    protected $returnType    = \App\Entities\Trabajadores::class;
+    protected $returnType    = Trabajadores::class;
 }
