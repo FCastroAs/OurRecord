@@ -71,3 +71,8 @@ input[type=text]::placeholder {
 .usuarioLogado{
     margin-right: 10px;
 }
+
+.row{
+    margin-right: auto;
+}
+
