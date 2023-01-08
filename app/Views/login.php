@@ -27,6 +27,12 @@
     <div class="wrapperLogin fadeInDown">
         <div id="formContent">
             <h1>Our Record</h1>
+            <?php
+            $session = session();
+            if ($session->getFlashdata("error") != null){
+                echo("<div style='color: red'>" . $session->getFlashdata("error") . "</div>");
+            }
+            ?>
             <form name="formLogin" method="post" action="/login">
                 <input type="text" id="usuario" class="fadeIn second" name="usuario" placeholder="Usuario">
                 <input type="text" id="contraseña" class="fadeIn third" name="contraseña" placeholder="Contraseña">
@@ -35,12 +41,7 @@
         </div>
     </div>
 
-    <?php
-        $session = session();
-        if ($session->getFlashdata("error") != null){
-            echo("<div>" . $session->getFlashdata("error") . "</div>");
-        }
-    ?>
+
 
 <footer>
 
