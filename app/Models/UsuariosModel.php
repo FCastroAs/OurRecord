@@ -16,4 +16,10 @@ class UsuariosModel extends Model
     protected $validationMessages = [];
     protected $skipValidation     = false;
     protected $returnType    = Usuarios::class;
+
+    public function YaExisteLogin(string $login): bool
+    {
+        $usuario = $this->where('Login', $login)->first();
+        return ($usuario != null);
+    }
 }

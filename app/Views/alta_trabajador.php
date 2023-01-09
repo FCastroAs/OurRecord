@@ -16,7 +16,12 @@
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Usuario<span class="text-danger"> *</span></label> <input type="text" id="Usuario" name="Usuario" placeholder=""> </div>
                         <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Contraseña<span class="text-danger"> *</span></label> <input type="text" id="Contraseña" name="Contraseña" placeholder="" > </div>
                     </div>
-
+                    <?php
+                    $session = session();
+                    if ($session->getFlashdata("error") != null){
+                        echo("<div style='color: red'>" . $session->getFlashdata("error") . "</div>");
+                    }
+                    ?>
                     <div class="row justify-content-center pt-2 pt-2">
                         <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-outline-primary btn">Crear Trabajador</button> </div>
                     </div>
@@ -25,12 +30,3 @@
         </div>
     </div>
 </div>
-
-<?php
-$session = session();
-if ($session->getFlashdata("error") != null) {
-    echo("<div>");
-    echo($session->getFlashdata("error"));
-    echo("</div>");
-}
-?>

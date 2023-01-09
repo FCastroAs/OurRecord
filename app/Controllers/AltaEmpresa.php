@@ -21,23 +21,36 @@ class AltaEmpresa extends BaseController
     public function Guardar(){
 
         $empresasModel = new EmpresasModel();
-
         $data = $this->request->getPost();
         $empresa = new Empresas($data);
-        if ($empresasModel->save($empresa)){
-            $usuariosModel = new UsuariosModel();
 
-            $usuario = new Usuarios();
-            $usuario->IdEmpresa = $empresasModel->getInsertID();
-            $usuario->Login = $data['Usuario'];
-            $usuario = $usuario->EstableceClave($data['Contraseña']);
-            $usuario->DebeCambiarPassword = true;
-            $usuario->Rol = 2;
-            $usuariosModel->save($usuario);
-
-            $this->response->redirect("listaEmpresas");
+        $usuariosModel = new UsuariosModel();
+        if (!$empresa->Valida() || !$this->DataValido($data) ) {
+            $this->session->setFlashdata('error', 'Debe cubrir los campos obligatorios de la empresa');
+            return $this->MuestraVista('alta_empresa', $data);
+        } elseif ($usuariosModel->YaExisteLogin($data['Usuario'])) {
+            $this->session->setFlashdata('error', 'Ya existe un usuario con ese login');
+            return $this->MuestraVista('alta_empresa', $data);
         } else {
-            $this->response->redirect("/");
+            if ($empresasModel->save($empresa)) {
+                $usuariosModel = new UsuariosModel();
+
+                $usuario = new Usuarios();
+                $usuario->IdEmpresa = $empresasModel->getInsertID();
+                $usuario->Login = $data['Usuario'];
+                $usuario = $usuario->EstableceClave($data['Contraseña']);
+                $usuario->DebeCambiarPassword = true;
+                $usuario->Rol = 2;
+                $usuariosModel->save($usuario);
+
+                $this->response->redirect("listaEmpresas");
+            } else {
+                $this->response->redirect("/");
+            }
         }
+    }
+
+    private function DataValido($data){
+        return (isset($data['Usuario']) && ($data['Usuario'] != null) && ($data['Usuario'] != '') && isset($data['Contraseña']) && ($data['Contraseña'] != null) && ($data['Contraseña'] != ''));
     }
 }
